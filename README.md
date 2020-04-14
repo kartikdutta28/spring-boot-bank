@@ -1,7 +1,7 @@
 # spring-boot-bank
-#### This application is an extesion to my  <a name="online_bank" href="https://github.com/kartikdutta28/Bank">Online Banking system</a>
-#### i made using jsp,servlets and jdbc driver.
+#### This application is an extesion to my  <a name="online_bank" href="https://github.com/kartikdutta28/Bank">Online Banking system</a> which i made using jsp,servlets and jdbc driver.
 #### This time i decided to convert my jsp,servlet based project to a spring-boot application using thymleaf as a template engine
+# This web app provides the following functionalites listed below in the form of app stories(Screen Shots) below :-
 ### Login Page First Page
 <a name="online_bank" href="https://github.com/kartikdutta28/Bank"></a>
 ![alt text](https://github.com/kartikdutta28/spring-boot-bank/blob/master/src/main/resources/static/images/login.jpg)
