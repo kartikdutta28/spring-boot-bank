@@ -1,0 +1,29 @@
+<div th:fragment="navbar">
+    <style>
+    </style>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div th:if="${session.session}==null">
+                <a class="navbar-brand" th:href="@{'/'}">Log in</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li th:if="${session.session}==null" class="nav-item active">
+                        <a class="nav-link" th:href="@{'/newUser'}">Create New Account <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li th:if="${session.session}!=null" class="nav-item">
+                        <a class="nav-link" th:href="@{'/home'}">User Home <span class="sr-only"></span></a>
+                    </li>
+                    <li th:if="${session.session}!=null" class="nav-item">
+                        <a class="nav-link" th:href="@{'/faq'}">Faq Page <span class="sr-only"></span></a>
+                    </li>
+                    <li th:if="${session.session}!=null" class="nav-item active">
+                        <a class="nav-link" th:href="@{'/logout'}">Logout <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>

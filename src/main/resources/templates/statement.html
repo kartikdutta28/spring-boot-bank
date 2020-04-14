@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statement</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+</head>
+<body>
+<div th:replace="includes/navbar :: navbar"></div><br/><br/>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <p class="lead">
+                Your transaction statement is here.
+            </p>
+            <table id="myTable" border="1" cellpadding="10" align="center">
+                <thead>
+                <tr>
+                    <th >Account Id</th>
+                    <th >Amount</th>
+                    <th >Date</th>
+                    <th >User ID</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tran : ${tlist}">
+                    <td th:text="${tran.accountId}"></td>
+                    <td th:text="${tran.amount}"></td>
+                    <td th:text="${tran.date}"></td>
+                    <td th:text="${tran.userId}"></td>
+                    <div th:if="${tran.transactionType}=='D'">
+                        <td>Credited</td>
+                    </div>
+                    <div th:if="${tran.transactionType}=='W'">
+                        <td>Debited</td>
+                    </div>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div th:replace="includes/footer :: footer"></div>
+</body>
+</html>

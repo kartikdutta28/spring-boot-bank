@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction Form</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<div th:replace="includes/navbar :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+            <div class="card col-6 shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;" align="center">
+                <div class="card-body">
+                    <form th:action="@{/saveTransaction}" th:object="${transaction}" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Enter the amount</label>
+                            <input th:field="*{amount}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="uid">User Id</label>
+                            <input readonly th:field="*{userId}" type="text" class="form-control" id="uid">
+                        </div>
+                        <div class="form-group">
+                            <label for="comm">Comments (if-required)</label>
+                            <input th:field="*{comments}" type="text" class="form-control" id="comm">
+                        </div>
+                        <div class="row form-group">
+                            <div class="form-group col-md-6">
+                                <label  for="inputState">Select Account id</label>
+                                <select th:field="*{accountId}" id="inputState" class="form-control">
+                                    <div th:each="account : ${alist}">
+                                        <option th:value="${account.account_id}" th:text="${account.account_id}"></option>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="form-group col-md-6">
+                                <label  for="inputState2">Select User Type</label>
+                                <select th:field="*{transactionType}" id="inputState2" class="form-control">
+                                    <option value="" selected disabled>Choose Transaction Type</option>
+                                    <option th:value="'D'">Deposit</option>
+                                    <option th:value="'W'">Withdraw</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div th:replace="includes/footer :: footer"></div>
+</body>
+</html>

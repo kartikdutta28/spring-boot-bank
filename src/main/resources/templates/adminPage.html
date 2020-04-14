@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+</head>
+<body>
+    <div th:replace="includes/navbar :: navbar"></div><br/><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="list-group col-6" th:each="f : ${faqs}">
+                <div th:if="${f.answer}==null">
+                    <a th:href="@{'/answerFaq/'+${f.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1" th:text="${f.question}"></h5>
+                            <small>Asked By <span th:text="${f.userName}"></span></small>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div th:replace="includes/footer :: footer"></div>
+</body>
+</html>

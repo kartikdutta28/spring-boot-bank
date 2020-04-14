@@ -1,0 +1,6 @@
+<div th:fragment="message" th:if="${session.msg} !=null">
+    <div class="alert alert-primary" role="alert" th:text="${session.msg}"></div>
+</div>
+<div th:fragment="messageD" th:if="${session.msgD} !=null">
+    <div class="alert alert-danger" role="alert" th:text="${session.msgD}"></div>
+</div>

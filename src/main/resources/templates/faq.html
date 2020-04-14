@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/ScrollToPlugin.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="includes/navbar :: navbar"></div><br/><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="card col-6 shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;" align="center">
+                <div class="card-body">
+                    <i class="material-icons" style="font-size: 50px">live_help</i>
+                    <form th:action="@{/saveFaq}" th:object="${faq}" method="post">
+                        <div class="form-group">
+                            <label for="question">Ask your question</label>
+                            <input th:field="*{question}" type="text" class="form-control" id="question" placeholder="Your Question goes here">
+                        </div>
+                        <div class="form-group">
+                            <label for="userId">Enter your user name</label>
+                            <input th:field="*{userName}" type="text" class="form-control" id="userId" placeholder="Your User Name goes here">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <h2 align="center">Frequently Asked Questions</h2>
+        <div class="scroll" th:each="f : ${faqs}">
+            <div th:if="${f.answer}!=null">
+                <br/>
+                <div class="row">
+                        <div class="col"></div>
+                        <div class="list-group col-6">
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start shadow-lg">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1" th:text="${f.question}"></h5>
+                                    <small>Asked By <span th:text="${f.userName}"></span></small>
+                                </div>
+                                <p class="mb-1" th:text="${f.answer}"></p>
+                            </a>
+                        </div>
+                        <div class="col"></div>
+                </div>
+            </div>
+        </div>
+    </div><br/><br/>
+    <div th:replace="includes/footer :: footer"></div>
+</body>
+</html>

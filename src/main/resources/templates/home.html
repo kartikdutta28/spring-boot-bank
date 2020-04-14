@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="includes/navbar :: navbar"></div>
+    <div class="container">
+        <br/>
+        <div class="row">
+            <div class="col-3">
+                <div class="border-info card shadow-lg p-3 mb-5 bg-white rounded time-right-l">
+                    <div class="card-body">
+                        <h5 class="card-title" >Get Statement By Date</h5>
+                    </div>
+                    <form th:action="@{'/getStatement/'+${user.user_id}}">
+                        <div class="form-group">
+                            <label for="start">Start Date</label>
+                            <input name="start" type="date" class="form-control" id="start" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Enter the start date please.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="end">End Date</label>
+                            <input name="end" type="date" class="form-control" id="end">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+                <div class="col-6 border-info card shadow-lg p-3 mb-5 bg-white rounded time-right" style="width: 18rem;">
+                    <div th:replace="includes/message :: message"></div>
+                    <div th:replace="includes/message :: messageD"></div>
+                    <div class="card-body">
+                        <h5 th:text="${user.first_name}+' '+${user.last_name}" class="card-title" ></h5>
+                        <p th:text="${user.address}" class="card-text"></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Phone No </b><span th:text="${user.phone_number}"></span></li>
+                        <li class="list-group-item"><b>Transaction Password </b><span th:text="${user.transaction_password}"></span></li>
+                        <div th:if="${user.user_Type}=='N'">
+                            <li class="list-group-item"><b>User Type </b>Normal User</li>
+                        </div>
+                        <div th:if="${user.user_Type}=='P'">
+                            <li class="list-group-item"><b>User Type </b>Premium User</li>
+                        </div>
+
+                    </ul>
+                    <div class="card-body">
+                        <a th:href="@{'/newAccount/'+${user.user_id}}" class="card-link">Add Account</a>
+                    </div>
+                </div>
+            <div class="col">
+                <div class="list-group border border-success shadow-lg time-right-l">
+                    <a th:href="@{'/transfer/'+ ${user.user_id}}" class="list-group-item list-group-item-action">Transfer Funds
+                        <i class="material-icons">account_balance_wallet</i>
+                    </a>
+                    <a th:href="@{'/transaction/'+ ${user.user_id}}" class="list-group-item list-group-item-action">Withdraw/Deposit
+                        <i class="material-icons">payment</i>
+                    </a>
+                    <a th:href="@{'/reqCkBook'}" class="list-group-item list-group-item-action">Request Check-Book
+                        <i class="material-icons">receipt</i>
+                    </a>
+                </div><br/>
+                <div class="border-info card shadow-lg p-3 mb-5 bg-white rounded time-right-l">
+                    <div class="card-body">
+                        <h5 class="card-title" >Get Statement By Number</h5>
+                    </div>
+                    <form th:action="@{'/getStatementByn/'+${user.user_id}}">
+                        <div class="form-group">
+                            <label for="number">No of statements</label>
+                            <input name="number" type="text" class="form-control" id="number" aria-describedby="emailHelp">
+                            <small class="form-text text-muted">Enter the No of statements you want.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" th:each="account : ${alist}">
+            <div class="col"></div>
+                <div class="col-6 card shadow-lg p-3 mb-5 bg-white rounded border-dark time-right-d">
+                    <div class="card-body">
+                        <h5 class="card-title" ><b>Account no </b><span class="text-info" th:text="${account.account_id}"></span></h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Account Creation Date </b><span th:text="${account.creation_date}"></span></li>
+                        <li class="list-group-item"><b>Balance Amount </b><span th:text="${account.amount}"></span><i class="material-icons">attach_money</i></li>
+                        <div th:if="${account.account_type}=='SA'">
+                            <li class="list-group-item"><b>Account Type </b>Savings account</li>
+                        </div>
+                        <div th:if="${account.account_type}=='SV'">
+                            <li class="list-group-item"><b>Account Type </b>Salary account</li>
+                        </div>
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary">
+                            Transactions Left  <span th:text="${3-account.counter}" class="badge badge-light"></span>
+                            <span class="sr-only">unread messages</span>
+                        </button>
+                    </div>
+                </div>
+
+            <div class="col"></div>
+        </div>
+    </div>
+    <div th:replace="includes/footer :: footer"></div>
+</body>
+</html>
