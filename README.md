@@ -19,3 +19,7 @@
 ### Account Statement Page
 
 ![alt text](https://github.com/kartikdutta28/spring-boot-bank/blob/master/src/main/resources/static/images/statement.jpg)
+
+### FAQ Page
+
+![alt text](https://github.com/kartikdutta28/spring-boot-bank/blob/master/src/main/resources/static/images/faq.jpg)
