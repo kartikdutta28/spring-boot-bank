@@ -28,7 +28,12 @@ public class User {
 
     public User() {
     }
-
+    public User(User user){
+        this.id=user.getId();
+        this.email=user.getEmail();
+        this.password=user.getPassword();
+        this.user_name=user.getUser_name();
+    }
     public User(Long id, String email, String password, int user_id, String first_name, String last_name, String address, String user_name, String phone_number, String transaction_password, String user_Type, String log_status, Date lockDate) {
         this.id = id;
         this.email = email;

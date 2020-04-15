@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
-public class UserService {
+public class UserService{
     @Autowired
     private UserRepository ur;
     @Autowired
@@ -21,6 +22,7 @@ public class UserService {
     public User getByEmail(String email){
         return ur.findByEmail(email);
     }
+
 
     public void save(User user){
         System.out.println(user.getUser_id());
@@ -64,4 +66,6 @@ public class UserService {
     public List<User> listAll(){
         return ur.findAll();
     }
+
+
 }
