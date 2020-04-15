@@ -50,9 +50,9 @@ public class AppController {
         HttpSession session=request.getSession(false);
         int uid= (Integer) session.getAttribute("uid");
         User user=us.getByUserId(uid);
-        List<Account> li=us.getAllByUserId(uid);
+        List<Account> list=us.getAllByUserId(uid);
         mv.addObject("user",user);
-        mv.addObject("alist",li);
+        mv.addObject("alist",list);
         return mv;
     }
 }
