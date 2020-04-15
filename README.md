@@ -30,6 +30,7 @@
 #### In order to run this web application on your machine
 #### Go to spring-boot-bank\src\main\resources\application.properties file
 #### And just update the mysql user name and password with your my-sql username and password also 
-#### Refactor this line spring.datasource.url = jdbc:mysql://localhost:3306/[Enter your my-sql database name]
+#### Refactor this line 
+##### spring.datasource.url = jdbc:mysql://localhost:3306/[Enter your my-sql database name]
 
 # That's it Enjoy
