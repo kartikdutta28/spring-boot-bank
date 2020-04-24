@@ -1,5 +1,5 @@
 ![License](https://img.shields.io/github/license/kartikdutta28/spring-boot-bank)
-[![Download](https://poser.pugx.org/ali-irawan/xtra/d/total.svg)](https://poser.pugx.org/ali-irawan/xtra/d/total.svg)
+[![Froks](	https://img.shields.io/github/forks/kartikdutta28/spring-boot-bank)
 [![Unstable](https://poser.pugx.org/ali-irawan/xtra/v/unstable.svg)](https://poser.pugx.org/ali-irawan/xtra/v/unstable.svg)
 # spring-boot-bank
 #### This application is an extesion to my  <a name="online_bank" href="https://github.com/kartikdutta28/Bank">Online Banking system</a> which i made using jsp,servlets and jdbc driver.
