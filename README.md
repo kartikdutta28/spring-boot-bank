@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.com/kartikdutta28/spring-boot-bank.svg?branch=master)](https://travis-ci.com/kartikdutta28/spring-boot-bank)
 ![License](https://img.shields.io/github/license/kartikdutta28/spring-boot-bank)
 ![Froks](	https://img.shields.io/github/forks/kartikdutta28/spring-boot-bank)
 ![Issues](https://img.shields.io/github/issues/kartikdutta28/spring-boot-bank)
