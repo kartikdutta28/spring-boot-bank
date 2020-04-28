@@ -3,6 +3,8 @@
 ![Froks](	https://img.shields.io/github/forks/kartikdutta28/spring-boot-bank)
 ![Issues](https://img.shields.io/github/issues/kartikdutta28/spring-boot-bank)
 ![Stars](https://img.shields.io/github/stars/kartikdutta28/spring-boot-bank)
+![Build Status](https://travis-ci.com/kartikdutta28/spring-boot-bank.svg?branch=master)](https://travis-ci.com/kartikdutta28/spring-boot-bank)
+
 # spring-boot-bank
 #### This application is an extesion to my  <a name="online_bank" href="https://github.com/kartikdutta28/Bank">Online Banking system</a> which i made using jsp,servlets and jdbc driver.
 #### This time i decided to convert my jsp,servlet based project to a spring-boot application using thymleaf as a template engine
