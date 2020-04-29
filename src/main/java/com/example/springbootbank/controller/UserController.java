@@ -24,11 +24,9 @@ public class UserController {
     public static int n=2;
     @Autowired
     private UserService us;
-    @Autowired
-    private FaqService fs;
-    @Autowired 
-    private  FaqService fs;
 
+    @Autowired 
+    privat FaqService fs;
 
     @RequestMapping(value = "/login")
     public ModelAndView login(@ModelAttribute("user") User user, HttpServletRequest request){
