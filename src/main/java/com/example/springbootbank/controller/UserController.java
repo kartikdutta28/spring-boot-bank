@@ -30,7 +30,7 @@ public class UserController {
     private  FaqService fs;
     @RequestMapping(value = "/getAll",method = RequestMethod.GET)
     public List<User> getAll(){
-        return fs.listAll();
+        return fs.findAll();
     }
 
     @RequestMapping(value = "/login")
