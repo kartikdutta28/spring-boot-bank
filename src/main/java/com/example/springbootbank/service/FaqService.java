@@ -15,7 +15,7 @@ public class FaqService {
     private FaqRepository fr;
 
     public List<Faq> findAll(){
-        return fr.findAll();
+        return (List<Faq>) fr.findAll();
     }
 
     public void save(Faq faq){

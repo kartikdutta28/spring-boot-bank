@@ -64,7 +64,7 @@ public class UserService{
     }
 
     public List<User> listAll(){
-        return ur.findAll();
+        return (List<User>) ur.findAll();
     }
 
 
