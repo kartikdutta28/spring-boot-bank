@@ -26,10 +26,11 @@ public class UserController {
     private UserService us;
     @Autowired
     private FaqService fs;
-
+    @Autowired 
+    private  FaqService fs;
     @RequestMapping(value = "/getAll",method = RequestMethod.GET)
     public List<User> getAll(){
-        return us.listAll();
+        return fs.listAll();
     }
 
     @RequestMapping(value = "/login")
