@@ -26,7 +26,7 @@ public class UserController {
     private UserService us;
 
     @Autowired 
-    privat FaqService fs;
+    private FaqService fs;
 
     @RequestMapping(value = "/login")
     public ModelAndView login(@ModelAttribute("user") User user, HttpServletRequest request){
