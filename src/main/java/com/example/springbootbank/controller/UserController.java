@@ -28,10 +28,7 @@ public class UserController {
     private FaqService fs;
     @Autowired 
     private  FaqService fs;
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET)
-    public List<User> getAll(){
-        return fs.findAll();
-    }
+
 
     @RequestMapping(value = "/login")
     public ModelAndView login(@ModelAttribute("user") User user, HttpServletRequest request){
