@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
     User findByEmail(String email);
     @Query("FROM User u where u.user_id = :id")
     User findByUser_Id(@Param("id") int user_id);

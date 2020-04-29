@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CheckBookRepository extends CrudRepository<CheckBook,Long> {
+public interface CheckBookRepository extends JpaRepository<CheckBook,Long> {
     @Query("FROM CheckBook c where c.account_id = :id")
     CheckBook findByAccount_Id(@Param("id") int account_id);
 }
